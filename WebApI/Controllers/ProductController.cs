@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 
 namespace WebApI.Controllers
 {
-    public class ProductController : Controller
+    [Route("api/[controller]")]
+    [ApiController]  
+    public class ProductController : ControllerBase
     {
-        public IActionResult Index()
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
+
+        [HttpGet]
+        public string GetAllProducts()
         {
-            return View();
+            return "Hello Jesus";
         }
     }
 }
