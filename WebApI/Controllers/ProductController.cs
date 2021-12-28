@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApI.Models;
 
 namespace WebApI.Controllers
 {
@@ -10,15 +11,15 @@ namespace WebApI.Controllers
     [ApiController]  
     public class ProductController : ControllerBase
     {
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-
-        [HttpGet]
-        public string GetAllProducts()
+        private readonly IRepository repo;
+        public ProductController(IRepository repository)
         {
-            return "Hello Jesus";
+            repo = repository;
+        }
+        [HttpGet]
+        public IEnumerable<Product> GetAllProducts()
+        {
+            return repo.GetAllProducts();
         }
     }
 }

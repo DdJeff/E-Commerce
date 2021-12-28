@@ -17,7 +17,7 @@ namespace WebApI.Models
         public bool IsAvailable { get; set; }
         public int CategoryId { get; set; }
 
-        [JsonIgnore] // => needs this ti stop the loop for prodects with refernce to category and cat ref product
+        [JsonIgnore] // => needs this ti stop the loop for prodects with refernce to category but cat ref product
         public virtual Category Category { get; set; }
 
     }
